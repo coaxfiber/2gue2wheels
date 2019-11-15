@@ -1,6 +1,42 @@
 // http://ionicframework.com/docs/theming/
 
+.toolbar-background {
+	background-color: #3575d3;
+}
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default, .toolbar-title-md{
+	color: white;
+}
+ion-header{
 
+	.button-md{
+		background-color: #3575d3;
+		font-size: 10px;
+		margin: 0px;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+	}
+
+}
+
+button {
+
+	background-color: #3575d3;
+	.badge{
+   		 background-color: rebeccapurple
+	}
+	ion-badge {
+		background-color: red;
+		position: absolute;
+		top: 5px;
+		right: 0;
+		opacity: 0.9;
+
+		& ~ ion-icon {
+			margin-right: 7px;
+		}
+	}
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

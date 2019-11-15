@@ -1,0 +1,79 @@
+<ion-content class="main-modalionic">
+
+<div class="modalionic">
+
+        <ion-item>
+            <table style="width: 100%">
+              <tr>
+                <td>
+                   <table style="width:100%" >
+                     <tr>
+                       <td style="width: 90px;text-align: center;" valign="top">
+                         <img src="assets/imgs/sample.jpg" style="width: 100%;border-radius: 5px">
+                       </td>
+                       <td  style="padding-left: 5px;white-space: normal;" valign="top">
+                         <b style="font-size: 14px">{{ navParams.data.data.name }}</b>
+                         <p style="font-size: 11px;"> Address: {{ navParams.data.data.address }}</p>
+                          
+                         <div style="height: 10px"></div>
+                         <div  style="font-size: 13px" (click)="maps(navParams.data.data)">
+                         	<ion-icon name="locate"></ion-icon> Location
+                         </div>
+                       </td>
+                     </tr>
+                   </table>
+                </td>
+
+                 <td style="width: 60px !important;text-align: right;font-size: 12px;padding-left: 5px;white-space: normal;" valign="top">
+	                  <label class="tab-label" for="rd1">
+     					 <div class="btn btn-lg btn-light btn-block"
+               (click)="closemodal()">
+     					 &times;Close</div>
+	                 </label>
+
+                 </td>
+              </tr>
+            </table>
+        <div style="height: 10px"></div>
+        <div class="tab-content" style="padding-bottom: 0px">
+          <div class="form-group">
+			  <label style="font-size: 12px;">
+			  	Enter Order
+			  </label>
+			  <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5" style="font-size: 13px"></textarea>
+			</div>
+			<table style="width: 100%">
+				<tr>
+					<td>
+						<p>Delivery fee:
+						<b style="font-size: 20px">&#8369;100</b>
+						</p>
+						<p>
+							<i style="font-size: 11px">calculated from your Location</i>
+						</p>
+					</td>
+					<td>
+						<button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;"> change </button>
+					</td>
+				</tr>
+			</table>       				
+			
+          <div style="height: 10px;"></div>
+            <table style="width: 100%;">
+              <tr>
+                <td>
+     				<button class="btn btn-lg btn-primary btn-block" style="float: right;">
+     					 Place Order
+     				</button>
+                </td>
+              </tr>
+            </table>
+            <div style="height: 5px"></div>
+          <div class="tab">
+
+          </div>
+        </div>
+        </ion-item>
+</div>
+
+</ion-content>

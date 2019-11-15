@@ -3,16 +3,44 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <table style="width:100%">
+      <tr>
+        <td>
+          <p style="margin:0px;color: white;font-size: 15px">Partners</p>
+        </td>
+        <td style="width: 100px">
+          <div style="float: right;margin-right: 15px;font-size: 15px;color: white"> 
+            <button ion-button icon-only (click)="showNotifications()">
+              <ion-badge >100</ion-badge>
+              <ion-icon name="cart"></ion-icon>
+            </button>
+              <button ion-button icon-only (click)="showNotifications()">
+              <ion-badge >100</ion-badge>
+              <ion-icon name="notifications"></ion-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </table>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  
+  <form class="form-signin">
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+    </form>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

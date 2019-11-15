@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "316695557491",
+    "firebase_url": "https://fooddelivery-d412f.firebaseio.com",
+    "project_id": "fooddelivery-d412f",
+    "storage_bucket": "fooddelivery-d412f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316695557491:android:342e1133b9200b500a8106",
+        "android_client_info": {
+          "package_name": "elton.fooddelivery.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316695557491-7ve0993lcqg3151kavoub52vjuk59hf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDez7ikypSTw_m9ryBffOlzc_TeKrVLq8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316695557491-7ve0993lcqg3151kavoub52vjuk59hf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

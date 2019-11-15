@@ -1,0 +1,22 @@
+page-map-location {
+
+ /* Modal */
+  .main-modalionic {
+    background-color: rgba(0, 0, 0, 0.4); /* for shadow */
+
+  }
+
+  .modalionic {
+    height: 50%;
+    overflow:hidden;
+    position: absolute;
+    width: 90%;
+    top: 25%;
+    left: 5%;
+    background: #fff;
+    border-radius: 25px;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    box-shadow: 0 10px 6px -6px #777;
+  }
+}

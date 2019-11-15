@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <table style="width:100%">
+      <tr>
+        <td>
+          <p style="margin:0px;color: white;font-size: 15px">Food Delivery</p>
+        </td>
+        <td style="width: 100px">
+          <div style="float: right;margin-right: 15px;font-size: 15px;color: white"> 
+              <button ion-button icon-only (click)="showNotifications()">
+              <ion-badge >100</ion-badge>
+              <ion-icon name="notifications"></ion-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <table style="width: 100%">
+    <tr>
+      <td>  
+        <input class="form-control form-control-lg" type="text" placeholder="Search">
+      </td>
+      <td style="width: 110px;padding-left: 5px;">
+        <select class="form-control form-control-lg">
+          <option>- All -</option>
+          <option>Pancitan</option>
+          <option>Restaurant</option>
+          <option>Fast Food</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <div style="height: 10px"></div>
+	<ion-card *ngFor="let a of global.placearray">
+        <ion-item>
+            <table style="width: 100%">
+              <tr>
+                <td>
+                   <table style="width:100%" >
+                     <tr>
+                       <td style="width: 90px;text-align: center;" valign="top">
+                         <img [src]="global.checkphoto(a.photo)" style="width: 100%;border-radius: 5px">
+                       </td>
+                       <td  style="padding-left: 5px;white-space: normal;" valign="top">
+                         <b style="font-size: 14px">{{a.name}}</b>
+                         <p style="font-size: 11px;">{{ a.address }}</p>
+                          
+                         <div style="height: 10px"></div>
+                         <div  style="font-size: 13px" (click)="maps(a)">
+                          <ion-icon name="locate"></ion-icon> Location
+                         </div>
+                       </td>
+                     </tr>
+                   </table>
+                </td>
+
+                 <td style="width: 60px !important;text-align: right;font-size: 12px;padding-left: 5px;white-space: normal;">
+	                  <label class="tab-label" for="rd1">
+     					 <div class="btn btn-lg btn-primary btn-block"
+               (click)="ordert(a)">
+     					 Order</div>
+	                 </label>
+
+                 </td>
+              </tr>
+            </table>
+        </ion-item>
+     </ion-card>   
+
+</ion-content>
