@@ -30,6 +30,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     HomePage,
     ListPage,
+    PancitCapitalPage,
+    PancitOrderPage,
+    MapLocationPage
   ],
   imports: [
     BrowserModule,

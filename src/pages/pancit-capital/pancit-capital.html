@@ -38,6 +38,7 @@
     </tr>
   </table>
   <div style="height: 10px"></div>
+  <div *ngIf="global.placearray!=undefined">
 	<ion-card *ngFor="let a of global.placearray">
         <ion-item>
             <table style="width: 100%">
@@ -49,7 +50,7 @@
                          <img [src]="global.checkphoto(a.photo)" style="width: 100%;border-radius: 5px">
                        </td>
                        <td  style="padding-left: 5px;white-space: normal;" valign="top">
-                         <b style="font-size: 14px">{{a.name}}</b>
+                         <b style="font-size: 14px">{{ a.name }}</b>
                          <p style="font-size: 11px;">{{ a.address }}</p>
                           
                          <div style="height: 10px"></div>
@@ -73,5 +74,9 @@
             </table>
         </ion-item>
      </ion-card>   
-
+</div>
+<div *ngIf="global.placearray==undefined">
+  <div style="height: 20px"></div>
+  <ion-spinner name="bubbles" style="margin-left: calc(50% - 10px)"></ion-spinner>
+</div>
 </ion-content>

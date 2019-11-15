@@ -37,7 +37,7 @@ map
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);  
-      this.getlocation()  
+      //this.getlocation()  
       this.addMarker();
       //this.getlocation();
   }

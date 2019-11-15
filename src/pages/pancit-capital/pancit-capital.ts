@@ -30,6 +30,7 @@ export class PancitCapitalPage {
 
   ionViewDidLoad() {
     if (this.global.placearray.length==0) {
+      this.global.placearray=undefined
       var header = new Headers();
           header.append("Accept", "application/json");
           header.append("Content-Type", "application/x-www-form-urlencoded");    
@@ -42,7 +43,8 @@ export class PancitCapitalPage {
        .subscribe(res => {
          this.global.placearray = res.data
        },error=>{
-          this.global.presentAlert("No Internet/Server Down!","warning")
+         this.global.placearray = []
+         this.global.presentAlert("No Internet/Server Down!","warning")
        })
     }
   }
