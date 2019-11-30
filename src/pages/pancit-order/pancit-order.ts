@@ -34,6 +34,7 @@ export class PancitOrderPage {
   distance=''
 
   error = ''
+  geo=true
   constructor(
    private modal:ModalController,
    private view:ViewController,
@@ -50,7 +51,17 @@ export class PancitOrderPage {
   }
 
   ionViewDidLoad() {
+    this.global.latlng = undefined
     //console.log('ionViewDidLoad ModalSalamatPage');
+  }
+
+  ionViewDidEnter() {
+    if (this.global.latlng != undefined) {
+      this.currpos = this.global.latlng
+      this.error=''
+      this.calculateAndDisplayRoutetest() 
+      console.log( this.global.latlng)
+    }
   }
   closemodal(){
   	this.view.dismiss();
@@ -68,6 +79,7 @@ export class PancitOrderPage {
   getlocation(){
         this.geolocation.getCurrentPosition({timeout: 10000,enableHighAccuracy: true}).then((resp) => {
             this.currpos = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+            this.geo=false
             this.calculateAndDisplayRoutetest()
         }).catch((error) => {
           this.error='noloc'
@@ -106,7 +118,7 @@ calculateAndDisplayRoutetest() {
    this.routes=x;
    this.distance = this.routes[0].legs[0].distance.text
    var kil = parseFloat(this.routes[0].legs[0].distance.text)
-   var i = 3.5;
+   var i = 3.25;
    while(i<=kil){
      this.price = this.price + 5;
      i = i + 0.5;

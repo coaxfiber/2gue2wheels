@@ -27,7 +27,7 @@ export class MyApp {
 
   rootPage: any = PancitCapitalPage;
 
-  user="admin"
+  user="user"
 
   constructor(
    public menuCtrl: MenuController,

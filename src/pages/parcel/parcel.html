@@ -21,6 +21,53 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
- 
+<ion-content>
+
+  <ion-card style="position: absolute;z-index: 999;">
+        <table>
+          <tr>
+            <td style="padding-left: 10px;padding-top: 10px;width: 40px">
+              <img src="assets/imgs/a.png" style="width: 20px;margin-right: 20px">
+            </td>
+            <td>
+              <div style="height: 10px"></div>
+
+              <b>Pick up: </b><span  *ngIf="a">(empty)</span>
+
+            </td>
+              <td>
+              <div style="height: 10px"></div>
+              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;margin-right: 20px;" (click)="mapsfunc()"> change </button>
+            </td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td style="padding-left: 10px;padding-bottom: 10px;padding-top: 5px;width: 40px">
+              <img src="assets/imgs/b.png" style="width: 20px">
+            </td>
+            <td valign="top">
+              <div style="height: 10px"></div>
+              <b>Drop off: </b><span  *ngIf="b">(empty)</span>
+            </td>
+            <td valign="top">
+              <div style="height: 4px"></div>
+              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;margin-right: 20px" (click)="mapsfunc()"> change </button>
+              </td>
+          </tr>
+        </table>
+
+        <p style="text-align: center;margin-bottom: 15px">
+            <span *ngIf="distance!=''&&distance!='1 m'"> Distance: <b>{{distance}}</b></span>
+        </p>
+      <div *ngIf="clickmap=='loading'">
+        <div style="height: 1px"></div>
+        <ion-spinner name="bubbles" style="margin-left: calc(50% - 10px)"></ion-spinner>
+        <div style="height: 1px"></div>
+      </div> 
+    </ion-card> 
+
+     <div #map2 id="map2" style="width: 100%;height: 100%;"></div>
+
+
 </ion-content>

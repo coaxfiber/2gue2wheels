@@ -28,7 +28,10 @@ map
     clickmap='curr'
 
     currtemp
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+   public global: GlobalProvider,
+   public navCtrl: NavController, 
+   public navParams: NavParams) {
   	
   }
 
@@ -69,8 +72,9 @@ clearroute(){
 
   mapclickfunc(x){
 
-        this.currtemp = undefined  
+    this.currtemp = undefined  
     this.navParams.data.curr = x;
+    this.global.latlng = x
  	  this.calculateAndDisplayRoute()
     //this.calculateAndDisplayRoute()
   }
@@ -96,6 +100,7 @@ clearroute(){
         directionsDisplay.setDirections(response);
       } else {
         window.alert('Directions request failed due to ' + status);
+        this.global.latlng = undefined
       }
     });
     function getval(x){
@@ -107,7 +112,6 @@ clearroute(){
 distance=''
 assignroute(x){
     this.clickmap = 'loaded';
-    console.log(x)
     this.distance = x;
 
 } 

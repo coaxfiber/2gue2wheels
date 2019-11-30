@@ -52,7 +52,8 @@
 
 						</p>
 						<p style="margin-bottom: 0px">
-							<i style="font-size: 11px">calculated from your Location</i>
+              <i style="font-size: 11px" *ngIf="!geo">calculated from your Location</i>
+              <i style="font-size: 11px" *ngIf="geo">calculated from a Custom Location</i>
 						</p>
 					</td>
 					<td>

@@ -11,7 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class GlobalProvider {
   placearray=[]
   api = "http://eltonbagne.info/api/2g2w/";
-
+  latlng
   constructor(
   private domSanitizer: DomSanitizer, 
   private alertCtrl: AlertController) {
