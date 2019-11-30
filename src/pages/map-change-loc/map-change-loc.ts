@@ -27,6 +27,7 @@ map
 
     clickmap='curr'
 
+    currtemp
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	
   }
@@ -41,7 +42,9 @@ map
       if (this.navParams.data.curr==undefined) {
   		this.navParams.data.curr = this.navParams.data.place
 	  		this.clickmap = 'nocurr'
-	  }
+	    }else{
+        this.currtemp = 'curr'
+      }
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions); 
       this.calculateAndDisplayRoute()
  	 
@@ -65,14 +68,17 @@ clearroute(){
 }
 
   mapclickfunc(x){
-  	this.clickmap = 'clicked';
+
+        this.currtemp = undefined  
     this.navParams.data.curr = x;
- 	this.calculateAndDisplayRoute()
+ 	  this.calculateAndDisplayRoute()
     //this.calculateAndDisplayRoute()
   }
 
   calculateAndDisplayRoute() {
     var get;
+    this.distance=''
+    this.clickmap = 'loading';
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
     this.directionsDisplay.setMap(this.map);
@@ -84,7 +90,9 @@ clearroute(){
       }, function(response, status) {
       if (status === 'OK') {
         response.routes[0].warnings = [];
-        getval(response.routes)
+
+    this.distance = response.routes[0].legs[0].distance.text;
+        getval(response.routes[0].legs[0].distance.text)
         directionsDisplay.setDirections(response);
       } else {
         window.alert('Directions request failed due to ' + status);
@@ -96,7 +104,11 @@ clearroute(){
     setTimeout(()=>{ this.assignroute(get) }, 1000);    
 
 }
+distance=''
 assignroute(x){
- this.routes=x;
+    this.clickmap = 'loaded';
+    console.log(x)
+    this.distance = x;
+
 } 
 }

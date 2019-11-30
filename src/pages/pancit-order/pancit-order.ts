@@ -6,8 +6,8 @@ import { ModalController,ModalOptions } from 'ionic-angular';
 import { MapLocationPage } from '../map-location/map-location';
 import { LocatePage } from '../locate/locate';
 import { GlobalProvider } from '../../providers/global/global';
-declare var google;
 import { MapChangeLocPage } from '../map-change-loc/map-change-loc';
+declare var google;
 /**
  * Generated class for the PancitOrderPage page.
  *
@@ -107,7 +107,7 @@ calculateAndDisplayRoutetest() {
    this.distance = this.routes[0].legs[0].distance.text
    var kil = parseFloat(this.routes[0].legs[0].distance.text)
    var i = 3.5;
-   while(i<kil){
+   while(i<=kil){
      this.price = this.price + 5;
      i = i + 0.5;
    }
