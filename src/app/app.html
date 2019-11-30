@@ -17,34 +17,126 @@
       </ion-label>
     </ion-item-divider>
 
-    <ion-item-divider (click)="openPage(3)">
+    <ion-item-divider (click)="openPage(3)" *ngIf="user=='user'">
       <ion-label>
         <img src="assets/imgs/food.png" style="width: 20px" />
         Food
       </ion-label>
     </ion-item-divider>
 
-    <ion-item-divider (click)="openPage(1)">
+    <ion-item-divider (click)="openPage(2)" *ngIf="user=='user'">
       <ion-label>
        <img src="assets/imgs/parcel.png" style="width: 20px" /> Parcel
       </ion-label>
     </ion-item-divider>
 
-    <ion-item-divider (click)="openPage(3)">
+    <ion-item-divider (click)="openPage(6)"  *ngIf="user=='admin'">
       <ion-label>
+       <img src="assets/imgs/users.png" style="width: 20px" />
+        Users
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider (click)="openPage(4)"  *ngIf="user=='admin'">
+      <ion-label>
+       <img src="assets/imgs/place.png" style="width: 20px" />
+        Place Database
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider (click)="openPage(5)"  *ngIf="user=='user'">
+      <ion-label>
+       <img src="assets/imgs/order.png" style="width: 20px" />
         Orders
       </ion-label>
     </ion-item-divider>
 
-    <ion-item-divider (click)="openPage(4)">
+    <ion-item-divider (click)="openPage(5)" *ngIf="user=='rider'||user=='admin'">
       <ion-label>
+       <img src="assets/imgs/order.png" style="width: 20px" />
         Orders
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider (click)="openPage(13)">
+      <ion-label>
+       <img src="assets/imgs/rates.png" style="width: 20px" />
+        Rates
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-item-divider (click)="openhidden(1)">
+      <ion-label>
+       <img src="assets/imgs/about.png" style="width: 20px" />
+        Info
+       <img src="assets/imgs/right.png" style="width: 20px;float: right;" *ngIf="!about" />
+       <img src="assets/imgs/down.png" style="width: 20px;float: right;" *ngIf="about" />
+      </ion-label>
+    </ion-item-divider>
+
+    <div style="padding-right: 20px;padding-left: 20px;background-color: #4e82ce;"  *ngIf="about">
+
+          <ion-item-divider (click)="openPage(7)" style="background-color: #4e82ce;">
+            <ion-label>
+             <img src="assets/imgs/about1.png" style="width: 20px" />
+              About
+
+            </ion-label>
+          </ion-item-divider>
+
+
+          <ion-item-divider (click)="openPage(11)" style="background-color: #4e82ce;">
+            <ion-label>
+             <img src="assets/imgs/faq.png" style="width: 20px" />
+              FAQs
+            </ion-label>
+          </ion-item-divider>
+
+
+          <ion-item-divider (click)="openPage(8)" style="background-color: #4e82ce;">
+            <ion-label>
+             <img src="assets/imgs/terms.png" style="width: 20px" />
+              Terms and Conditions
+            </ion-label>
+          </ion-item-divider>
+
+
+          <ion-item-divider (click)="openPage(9)" style="background-color: #4e82ce;">
+            <ion-label>
+             <img src="assets/imgs/datap.png" style="width: 20px" />
+              Data Privacy
+            </ion-label>
+          </ion-item-divider>
+
+          <ion-item-divider (click)="openPage(10)" style="background-color: #4e82ce;">
+            <ion-label>
+             <img src="assets/imgs/contact.png" style="width: 20px" />
+              Contact Us
+            </ion-label>
+          </ion-item-divider>
+
+          <ion-item-divider (click)="openPage(12)" style="background-color: #4e82ce;">
+            <ion-label>
+             <img src="assets/imgs/dev.png" style="width: 20px" />
+              The Developer
+            </ion-label>
+          </ion-item-divider>
+    </div>
+    <div style="font-size: 12px;padding:10px;background-color: #4e82ce;padding-left: 35px"  *ngIf="about">
+      Powered by <a href="https://hackthenorth.ph" target="_blank" style="color: white;text-decoration: underline;">Hackthenorth</a>
+    </div>
+
+    <ion-item-divider (click)="openhidden(2)">
+      <ion-label>
+       <img src="assets/imgs/login.png" style="width: 20px"/>
+        Login
       </ion-label>
     </ion-item-divider>
 
     <ion-item-divider (click)="openPage(5)">
       <ion-label>
-        Login
+       <img src="assets/imgs/logout.png" style="width: 20px" />
+        Logout
       </ion-label>
     </ion-item-divider>
 

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <table style="width:100%">
+      <tr>
+        <td>
+          <p style="margin:0px;color: white;font-size: 15px">Change Location</p>
+        </td>
+        <td style="width: 100px">
+        </td>
+      </tr>
+    </table>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-card style="position: absolute;z-index: 999;">
+        <table>
+        	<tr>
+        		<td style="padding-left: 10px;padding-top: 10px;width: 40px">
+        			<img src="assets/imgs/a.png" style="width: 20px">
+        		</td>
+        		<td>
+        			<div style="height: 5px"></div>
+        			<span *ngIf="clickmap=='curr'">Your location</span> <i>(click on map to change)</i>
+        		</td>
+        	</tr>
+        </table>
+        <table>
+        	<tr>
+        		<td style="padding-left: 10px;padding-bottom: 10px;padding-top: 5px;width: 40px">
+        			<img src="assets/imgs/b.png" style="width: 20px">
+        		</td>
+        		<td>
+        			<b>{{ navParams.data.data.data.name }}</b>
+        			<div style="height: 10px"></div>
+        		</td>
+        	</tr>
+        </table>
+    </ion-card> 
+
+	   <div #map2 id="map2" style="width: 100%;height: 100%;"></div>
+
+
+</ion-content>

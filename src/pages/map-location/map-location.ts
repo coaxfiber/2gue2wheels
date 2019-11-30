@@ -26,7 +26,6 @@ map
   	public navCtrl: NavController, 
   	public navParams: NavParams,
   	private view:ViewController) {
-  	console.log(navParams.data)
   }
 
   ionViewDidLoad() {

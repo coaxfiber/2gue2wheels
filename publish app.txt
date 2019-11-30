@@ -1,0 +1,15 @@
+ionic cordova build --release android --prod
+
+
+
+//keytool -genkey -v -keystore riceup.keystore -alias riceup -keyalg RSA -keysize 2048 -validity 10000//kung perstime
+
+
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore riceup.keystore riceup.apk riceup
+
+
+
+./zipalign -v 4 riceup.apk riceupapp.apk
+
+ionic generate page shipping-details

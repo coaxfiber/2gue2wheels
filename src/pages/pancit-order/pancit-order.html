@@ -2,20 +2,22 @@
 
 <div class="modalionic">
 
-        <ion-item>
+        <div style="padding: 15px;line-height: 15px">
             <table style="width: 100%">
               <tr>
                 <td>
                    <table style="width:100%" >
                      <tr>
                        <td style="width: 90px;text-align: center;" valign="top">
-                         <img src="assets/imgs/sample.jpg" style="width: 100%;border-radius: 5px">
+                          <img [src]="global.checkphoto(navParams.data.data.photo)" style="width: 100%;border-radius: 5px">
                        </td>
                        <td  style="padding-left: 5px;white-space: normal;" valign="top">
+
+                         <div style="height: 3px"></div>
                          <b style="font-size: 14px">{{ navParams.data.data.name }}</b>
-                         <p style="font-size: 11px;"> Address: {{ navParams.data.data.address }}</p>
+                         <p style="font-size: 11px;">{{ navParams.data.data.address }}</p>
                           
-                         <div style="height: 10px"></div>
+                         <div style="height: px"></div>
                          <div  style="font-size: 13px" (click)="maps(navParams.data.data)">
                          	<ion-icon name="locate"></ion-icon> Location
                          </div>
@@ -40,24 +42,79 @@
 			  <label style="font-size: 12px;">
 			  	Enter Order
 			  </label>
-			  <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5" style="font-size: 13px"></textarea>
+			  <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="5" style="font-size: 13px" [(ngModel)]="order" ></textarea>
 			</div>
-			<table style="width: 100%">
+			<table style="width: 100%" *ngIf="error=='got'">
 				<tr>
 					<td>
-						<p>Delivery fee:
-						<b style="font-size: 20px">&#8369;100</b>
+						<p style="margin-bottom: 0px">Delivery fee:
+						<b style="font-size: 20px">&#8369;{{ price }}</b>/{{ distance }}
+
 						</p>
-						<p>
+						<p style="margin-bottom: 0px">
 							<i style="font-size: 11px">calculated from your Location</i>
 						</p>
 					</td>
 					<td>
-						<button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;"> change </button>
+						<button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;" (click)="mapsfunc()"> change </button>
 					</td>
 				</tr>
-			</table>       				
-			
+			</table>
+
+      <div *ngIf="error==''">
+        <div style="height: 1px"></div>
+        <ion-spinner name="bubbles" style="margin-left: calc(50% - 10px)"></ion-spinner>
+        <div style="height: 1px"></div>
+      </div>  
+
+      <table style="width: 100%"  *ngIf="error=='noloc'">
+        <tr>
+          <td>
+            <p style="margin-bottom: 0px">
+            - Can't determine location - 
+            </p>
+          </td>
+          <td>
+            <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;" (click)="mapsfunc()"> change </button>
+          </td>
+        </tr>
+      </table>
+
+      <table style="width: 100%" *ngIf="error=='changeloc'">
+        <tr>
+          <td>
+            <p style="margin-bottom: 0px">Delivery fee:
+            <b style="font-size: 20px">&#8369;{{ price }}</b>/{{ distance }}
+
+            </p>
+          </td>
+          <td>
+            <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;" (click)="mapsfunc()"> change </button>
+          </td>
+        </tr>
+      </table>
+
+          <div style="height: 5px;"></div>
+			     
+          <table>
+            <tr>
+              <td style="width: 48px"><ion-toggle color="primary" [(ngModel)]="sched"></ion-toggle></td>
+              <td>Schedule</td>
+            </tr>
+          </table>
+           
+
+          <div style="height: 3px;"></div>
+          <div *ngIf="sched">
+                <ion-item>
+                  <ion-label style="color: black;font-size: 13px">Date</ion-label>
+                  <ion-datetime displayFormat="DDDD MMM D, YYYY" style='height: 15px;padding: 0;font-size: 12px;'  [(ngModel)]="datesched" placeholder="Enter Date"></ion-datetime>
+                </ion-item>
+                <ion-item>
+                  <ion-label style="color: black;font-size: 13px">Time</ion-label>
+                  <ion-datetime displayFormat="h:mma" style='height: 15px;padding: 0;font-size: 12px;' [(ngModel)]="timesched" placeholder="Enter Time"></ion-datetime>
+                </ion-item>
+          </div>
           <div style="height: 10px;"></div>
             <table style="width: 100%;">
               <tr>
@@ -73,7 +130,7 @@
 
           </div>
         </div>
-        </ion-item>
+        </div>
 </div>
 
 </ion-content>
