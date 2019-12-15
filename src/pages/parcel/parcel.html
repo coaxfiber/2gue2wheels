@@ -24,7 +24,7 @@
 <ion-content>
 
   <ion-card style="position: absolute;z-index: 999;">
-        <table>
+        <table style="width: 100%">
           <tr>
             <td style="padding-left: 10px;padding-top: 10px;width: 40px">
               <img src="assets/imgs/a.png" style="width: 20px;margin-right: 20px">
@@ -32,35 +32,47 @@
             <td>
               <div style="height: 10px"></div>
 
-              <b>Pick up: </b><span  *ngIf="a">(empty)</span>
+              <b>Pick up: </b><span  *ngIf="a==undefined">(empty)</span>
+
+              <span  *ngIf="a==0">Tap on map to locate</span>
+              <span  *ngIf="a==1">Located</span>
 
             </td>
               <td>
               <div style="height: 10px"></div>
-              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;margin-right: 20px;" (click)="mapsfunc()"> change </button>
+              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right !important;margin-right: 20px;" (click)="mapsfunc('a')"  *ngIf="a!=0&&b!=0" > change </button>
+              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right !important;margin-right: 20px;" (click)="mapsfunc('a')"  *ngIf="a==0" > cancel </button>
             </td>
           </tr>
         </table>
-        <table>
+        <table style="width: 100%">
           <tr>
             <td style="padding-left: 10px;padding-bottom: 10px;padding-top: 5px;width: 40px">
               <img src="assets/imgs/b.png" style="width: 20px">
             </td>
             <td valign="top">
               <div style="height: 10px"></div>
-              <b>Drop off: </b><span  *ngIf="b">(empty)</span>
+              <b>Drop off: </b><span  *ngIf="b==undefined">(empty)</span>
+              <span  *ngIf="b==0">Tap on map to locate</span>
+              <span  *ngIf="b==1">Located</span>
             </td>
             <td valign="top">
               <div style="height: 4px"></div>
-              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;margin-right: 20px" (click)="mapsfunc()"> change </button>
+              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right;margin-right: 20px" (click)="mapsfunc('b')" *ngIf="b!=0&&a!=0"  > change </button>
+
+              <button style="height: 30px;background-color: white;border-style: solid;border-width: 1px;border-color: grey;color: grey;font-size: 12px;float: right !important;margin-right: 20px;" (click)="mapsfunc('b')"  *ngIf="b==0" > cancel </button>
               </td>
           </tr>
         </table>
 
         <p style="text-align: center;margin-bottom: 15px">
-            <span *ngIf="distance!=''&&distance!='1 m'"> Distance: <b>{{distance}}</b></span>
+            <span *ngIf="distance!=''&&distance!='1 m'"> 
+            <p style="margin-bottom: 0px">Delivery fee:
+            <b style="font-size: 20px">&#8369;50</b>/3km
+
+            </p><!-- <b>{{distance}}</b> --></span>
         </p>
-      <div *ngIf="clickmap=='loading'">
+      <div *ngIf="currtemp=='loading'">
         <div style="height: 1px"></div>
         <ion-spinner name="bubbles" style="margin-left: calc(50% - 10px)"></ion-spinner>
         <div style="height: 1px"></div>

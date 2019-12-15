@@ -32,8 +32,8 @@ map
 
     currtemp
 
-    a=true
-    b=true
+    a
+    b
   constructor(
    public global: GlobalProvider,
    public navCtrl: NavController, 
@@ -42,7 +42,7 @@ map
   	
   }
 
-
+markers=[]
   ionViewDidLoad() {
       let position = new google.maps.LatLng(17.617531, 121.731231);
      let mapOptions = {
@@ -54,8 +54,10 @@ map
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions); 
  	    this.getlocation()
 	    google.maps.event.addListener(this.map, 'click', event => {
-	    	this.clearroute()
-      		this.mapclickfunc(event.latLng)
+	    	
+        if (this.a==0||this.b==0) {
+        this.mapclickfunc(event.latLng)
+        }
 		});
 
 	  //this.getlocation()  
@@ -72,26 +74,67 @@ clearroute(){
   }
 }
 
+mapsfunc(x){
+
+  if(x=='a'){
+    if (this.a==undefined) {
+      this.a = 0
+    }else if(this.a==0){
+      this.a = undefined
+    }else if(this.a==1){
+
+      this.clearroute()
+      this.a = 0
+    }
+  }
+  if(x=='b'){
+    if (this.b==undefined) {
+      this.clearroute()
+      this.b = 0
+    }else if(this.b==0){
+      this.b = undefined
+    }else if(this.b==1){
+
+      this.clearroute()
+      this.b = 0
+    }
+  }
+}
+aroute
+broute
   mapclickfunc(x){
 
-    this.currtemp = undefined  
-    this.navParams.data.curr = x;
-    this.global.latlng = x
- 	  this.calculateAndDisplayRoute()
+    if (this.a==0) {
+    
+      this.aroute = x
+      this.a = 1
+    }else 
+    if (this.b==0) {
+
+
+      this.broute = x
+      this.b = 1
+    }
+
+    if (this.a==1&&this.b==1) {
+
+      //marker.setMap(null);
+     this.calculateAndDisplayRoute()
+    }
     //this.calculateAndDisplayRoute()
   }
 
   calculateAndDisplayRoute() {
     var get;
     this.distance=''
-    this.clickmap = 'loading';
+    this.currtemp='loading'
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
     this.directionsDisplay.setMap(this.map);
     var directionsDisplay = this.directionsDisplay
     this.directionsService.route({
-    origin: this.navParams.data.curr,
-    destination:  this.navParams.data.place,
+    origin: this.aroute,
+    destination:  this.broute,
     travelMode: 'WALKING'
       }, function(response, status) {
       if (status === 'OK') {
@@ -113,13 +156,14 @@ clearroute(){
 }
 distance=''
 assignroute(x){
-    this.clickmap = 'loaded';
+  this.currtemp='loaded'
     this.distance = x;
 
 } 
 
 
  getlocation(){
+         this.currtemp='loading'
         this.geolocation.getCurrentPosition({timeout: 10000,enableHighAccuracy: true}).then((resp) => {
             var position = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
             var infoWindowContent = 'You are here!';
@@ -128,8 +172,11 @@ assignroute(x){
               position: position,
             });
             infoWindow.setMap(this.map)
+
+         this.currtemp='loaded'
         }).catch((error) => {
-          console.log(error)
+
+         this.currtemp='failed'
           this.global.presentAlert("Failed to locate position. Turn on location or allow app to access location.","Warning!")
         });
   }
