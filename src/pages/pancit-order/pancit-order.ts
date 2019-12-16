@@ -123,10 +123,12 @@ calculateAndDisplayRoutetest() {
      this.price = this.price + 5;
      i = i + 0.5;
    }
+   if (x.includes('km')) {
+     // code...
+   }else{
+     this.price=50
+   }
   } 
-
-
-
   mapsfunc(){
      this.navCtrl.push(MapChangeLocPage,{curr:this.currpos,place:this.placepos,data:this.navParams.data})
   }
