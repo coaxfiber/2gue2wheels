@@ -155,13 +155,24 @@ broute
 
 }
 distance=''
+price=50
 assignroute(x){
   this.currtemp='loaded'
     this.distance = x;
+    this.routes=x;
+    this.price=50;
 
+    console.log(x)
+   this.distance = x
+   var kil = parseFloat(x)
+   var i = 3.25;
+   while(i<=kil){
+     this.price = this.price + 5;
+     i = i + 0.5;
+   }
+   // console.log(this.price)
 } 
-
-
+ 
  getlocation(){
          this.currtemp='loading'
         this.geolocation.getCurrentPosition({timeout: 10000,enableHighAccuracy: true}).then((resp) => {
